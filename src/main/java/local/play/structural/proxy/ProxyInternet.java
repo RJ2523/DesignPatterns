@@ -1,4 +1,4 @@
-package local.play.proxy;
+package local.play.structural.proxy;
 
 import java.util.HashMap;
 import java.util.Map;

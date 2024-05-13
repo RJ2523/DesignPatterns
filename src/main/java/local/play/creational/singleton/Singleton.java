@@ -1,4 +1,4 @@
-package local.play.singleton;
+package local.play.creational.singleton;
 
 import lombok.Data;
 

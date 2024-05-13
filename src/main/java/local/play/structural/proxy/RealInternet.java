@@ -1,4 +1,4 @@
-package local.play.proxy;
+package local.play.structural.proxy;
 
 public class RealInternet implements Internet{
     public void connect(String host){

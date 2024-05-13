@@ -7,8 +7,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import local.play.prototype.ConcretePrototype;
-import local.play.singleton.Singleton;
+import local.play.creational.factory.Animal;
+import local.play.creational.factory.AnimalFactory;
+import local.play.creational.factory.Cat;
+import local.play.creational.factory.Dog;
+import local.play.creational.prototype.ConcretePrototype;
+import local.play.creational.singleton.Singleton;
 
 /**
  * Hello world!
@@ -16,16 +20,9 @@ import local.play.singleton.Singleton;
  */
 public class App {
     public static void main( String[] args ){
-
-        // Singleton singleton = Singleton.getInstane();
-        // System.out.println(singleton.getX());
-        // Singleton singleton2 = Singleton.getInstane();
-        // System.out.println(singleton2.getX());
-    
-
-        List<Integer> list = new ArrayList<>();
-        list.add(0,3);
-        System.out.println(list.get(0));
-        
-    }
+        String requirment = "Cat";
+        AnimalFactory animalFactory = new AnimalFactory();
+        Cat cat = (Cat) animalFactory.createAnimal(requirment);
+        cat.speak();;
+    }   
 }
