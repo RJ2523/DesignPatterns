@@ -1,18 +1,11 @@
 package local.play;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-
-import local.play.creational.factory.Animal;
+import local.play.behavioural.chainOfResposibility.PSTicketHandler;
+import local.play.behavioural.chainOfResposibility.SDETicketHandler;
+import local.play.behavioural.chainOfResposibility.Ticket;
+import local.play.behavioural.chainOfResposibility.TicketHandler;
 import local.play.creational.factory.AnimalFactory;
 import local.play.creational.factory.Cat;
-import local.play.creational.factory.Dog;
-import local.play.creational.prototype.ConcretePrototype;
-import local.play.creational.singleton.Singleton;
 
 /**
  * Hello world!
@@ -20,9 +13,18 @@ import local.play.creational.singleton.Singleton;
  */
 public class App {
     public static void main( String[] args ){
-        String requirment = "Cat";
-        AnimalFactory animalFactory = new AnimalFactory();
-        Cat cat = (Cat) animalFactory.createAnimal(requirment);
-        cat.speak();;
+        TicketHandler ticketHandler = new PSTicketHandler();
+        TicketHandler sHandler = new SDETicketHandler();
+
+        ticketHandler.setNextHandler(sHandler);
+
+        Ticket ticket1 = new Ticket();
+        ticket1.setSeverity("Easy");
+
+        Ticket ticket2 = new Ticket();
+        ticket2.setSeverity("Complex");
+
+        //System.out.println(psTicketHandler.resolveTicket(ticket1).isResolved());
+        System.out.println(ticketHandler.resolveTicket(ticket2).isResolved());
     }   
 }
